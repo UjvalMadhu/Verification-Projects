@@ -1,0 +1,175 @@
+sp2tswitch#* t0 t1 t2
+scasubckt#* p1 ref
+psoip#* D G S E
+vbic#* C B E
+pcccs#* PLUS MINUS
+vccap#* n+ n- in+ in-
+u1wire#* refout refin out in
+pexp#* PLUS MINUS
+isffm#* MINUS PLUS
+vdd#* vdd!
+pnp#* C B E
+vsource#* PLUS MINUS
+vccsp#* PLUS MINUS NC+ NC-
+mind#* 
+ibis_buffer#* die out en
+idc#* PLUS MINUS
+zccvs#* PLUS MINUS
+vpwl#* PLUS MINUS
+u5wire#* out5 out4 out3 out2 in5 in4 in3 in2 in1 refout refin out1
+pjfet#* D G S
+fourier2ch#* p n pr nr
+diffstbprobe#* IN1 IN2 OUT1 OUT2
+gnda#* gnda!
+vcres#* n+ n- in+ in-
+pmos4#* D G S B
+nport#* p1 m1
+zener#* PLUS MINUS
+sp3tswitch#* t0 t1 t2 t3
+pvcvs2#* PLUS MINUS NC+ NC- NC2+ NC2-
+cfde_nport#* 
+vssa#* vssa!
+nmos#* D G S
+n2port#* t1 b1 t2 b2
+iopamp#* in+ n+ n- in-
+pvccs#* PLUS MINUS NC+ NC-
+delayline#* in out
+ibit#* PLUS MINUS
+iprobe#* PLUS MINUS
+gnd#* gnd!
+ipulse#* PLUS MINUS
+ppwl#* PLUS MINUS
+phyres#* t1 t2 t0
+nmes#* D G S
+ind#* PLUS MINUS
+zvcvs#* PLUS MINUS NC+ NC-
+veed#* veed!
+vam#* MINUS PLUS
+npn#* C B E
+cap#* PLUS MINUS
+cccs#* PLUS MINUS
+vprbs#* PLUS MINUS
+sp4tswitch#* t0 t1 t2 t3 t4
+pdiode#* PLUS MINUS
+ixfmr#* in+ in- n- n+
+vpwlf#* PLUS MINUS
+scccs#* PLUS MINUS
+u4wire#* out3 out2 out1 in3 refout refin out4 in2 in1 in4
+pinductor#* PLUS MINUS
+bcs#* PLUS MINUS
+ideal_balun#* p n d c
+iprbs#* PLUS MINUS
+pvccs2#* PLUS MINUS NC+ NC- NC2+ NC2-
+vddd#* vddd!
+res#* PLUS MINUS
+multibit#* a0 a1 a2 a3 ref
+ipwlf#* PLUS MINUS
+pbsim#* D G S
+isin#* PLUS MINUS
+vcc#* vcc!
+n1port#* t1 b1
+pvcvs3#* PLUS MINUS NC+ NC- NC2+ NC2- NC3+ NC3-
+MOS_d2a#* A D
+vccs#* PLUS MINUS NC+ NC-
+pmos#* D G S
+pccvs#* PLUS MINUS
+nmes4#* D G S B
+vccd#* vccd!
+veea#* veea!
+ppulse#* PLUS MINUS
+nsoip#* D G S E
+switch#* N+ N- NC+ NC-
+svccs#* PLUS MINUS NC+ NC-
+bjt504tpnp#* C B E S dT
+tline#* IN+ IN- OUT+ OUT-
+rcwireload#* t1 t2 t0
+ntft#* D G S
+fourier#* p n
+vbit#* PLUS MINUS
+diode#* PLUS MINUS
+iexp#* PLUS MINUS
+vdda#* vdda!
+u3wire#* refout refin out3 in1 out2 in2 in3 out1
+pbsim4#* D G S B
+njfet#* D G S
+delay#* p n ps ns
+iam#* MINUS PLUS
+nsoi#* D G S B
+nmos4#* D G S B
+mtline#* in1 out1 inref outref
+core#* 
+pvcvsp#* PLUS MINUS NC+ NC-
+pvcvs#* PLUS MINUS NC+ NC-
+pvccs3#* PLUS MINUS NC+ NC- NC2+ NC2- NC3+ NC3-
+TTL_d2a#* A D
+vpnp#* C B E
+indq#* PLUS MINUS
+vcca#* vcca!
+userpnp#* C B E
+MOS_a2d#* A D
+cfde_spice_model#* 
+corefragment#* PLUS MINUS
+zcccs#* PLUS MINUS
+cfde_nport_ind#* PLUS MINUS
+pprbs#* PLUS MINUS
+pdc#* PLUS MINUS
+n4port#* t1 b1 t2 b2 t3 b3 t4 b4
+ccvs#* PLUS MINUS
+cfde_nport_cap#* PLUS MINUS
+cfde_spice_model_ind#* PLUS MINUS
+winding#* t b
+vsin#* PLUS MINUS
+vee#* vee!
+cfde_spice_model_cap#* PLUS MINUS
+ppwlf#* PLUS MINUS
+bjt504tnpn#* C B E S dT
+sccvs#* PLUS MINUS
+bvs#* MINUS PLUS
+bsource#* PLUS MINUS
+ipwl#* PLUS MINUS
+vdc#* PLUS MINUS
+nbsim4#* D G S B
+capq#* PLUS MINUS
+cfde_nport_res#* PLUS MINUS
+vss_inherit#* vss!
+u2wire#* refout refin out2 in1 out1 in2
+ptft#* D G S
+cfde_spice_model_res#* PLUS MINUS
+deepprobe#* MINUS
+vpulse#* PLUS MINUS
+pvccsp#* PLUS MINUS NC+ NC-
+bsim4#* D G S B
+scr#* NA NAG NCG NC
+pmind#* 
+msline#* t1 b1 t2 b2
+zvccs#* PLUS MINUS NC+ NC-
+nbsim#* D G S
+vnpn#* C B E
+vcvsp#* PLUS MINUS NC+ NC-
+vcvs#* PLUS MINUS NC+ NC-
+sp1tswitch#* t0 t1
+psin#* PLUS MINUS
+isource#* PLUS MINUS
+TTL_a2d#* A D
+dcblock#* PLUS MINUS
+vexp#* PLUS MINUS
+usernpn#* C B E
+psoi#* D G S B
+presistor#* PLUS MINUS
+dcfeed#* PLUS MINUS
+vss#* vss!
+port3t#* PLUS MINUS DCBIAS
+fracpole#* PLUS MINUS
+xfmr#* P+ P- S+ S-
+svcvs#* PLUS MINUS NC+ NC-
+port#* PLUS MINUS
+nodeQuantity#* T
+gndd#* gndd!
+simulinkCoupler#* out0 out1 out2 out3 out4 out5 out6 out7 out8 out9 out10 out11 out12 out13 out14 out15 out16 out17 out18 out19 out20 out21 out22 out23 out24 out25 out26 out27 out28 out29 out30 out31 out32 out33 out34 out35 out36 out37 out38 out39 out40 out41 out42 out43 out44 out45 out46 out47 out48 out49 out50 out51 out52 out53 out54 out55 out56 out57 out58 out59 out60 out61 out62 out63 out64 out65 out66 out67 out68 out69 out71 out72 out73 out74 out75 out76 out77 out78 out79 out80 out81 out82 out83 out84 out85 out86 out87 out88 out89 out90 out91 out92 out93 out94 out95 out96 out97 out98 out99 in0 in1 in2 in3 in4 in5 in6 in7 in8 in9 in10 in11 in12 in13 in14 in15 out70 in16 in17 in18 in19 in20 in21 in22 in23 in24 in25 in26 in27 in28 in29 in30 in31 in32 in33 in34 in35 in36 in37 in38 in39 in40 in41 in42 in43 in44 in45 in46 in47 in48 in49 in50 in51 in52 in53 in54 in55 in56 in57 in58 in59 in60 in61 in62 in63 in64 in65 in66 in67 in68 in69 in70 in71 in72 in73 in74 in75 in76 in77 in78 in79 in80 in81 in82 in83 in84 in85 in86 in87 in88 in89 in90 in91 in92 in93 in94 in95 in96 in97 in98 in99
+pcapacitor#* PLUS MINUS
+n3port#* t1 b1 t2 b2 t3 b3
+vssd#* vssd!
+vdd_inherit#* vdd!
+schottky#* PLUS MINUS
+cmdmprobe#* in1 in2 out1 out2
+vsffm#* MINUS PLUS
