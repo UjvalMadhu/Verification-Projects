@@ -2,9 +2,9 @@
 +nowarnIWFA
 +nowarnSVTL
 src/timescale.v
-src/MCA_Project_test.sv
-src/MCA_Project.v
-src/DRAM.v
+src/apb_stb.sv
+src/apb_inf.sv
+src/apb_completer_mod.sv
 //
 // Add source files above
 //

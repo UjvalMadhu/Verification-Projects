@@ -7,21 +7,25 @@
 ////////////////////////////////////////////////////////////////////////////////////
 //  CVS Log
 //
-//  Id: apb_tb_top.sv,v 1.0
+//  Id: apb_completer_mod.sv,v 1.0
 //
-//  $Date: 2025-01-11
+//  $Date: 2025-01-30
 //  $Revision: 1.0 $
 //  $Author:  Ujval Madhu
 
 
 
-module apb_comp(
-    apb_inf.comp apb_inf
+module apb_comp #(
+    parameter int MEM_SIZE   = 256,    // Total Memory = 256*4 = 1024 Bytes
+    parameter int DATA_WIDTH = 32,     // can be 8, 16, 32
+    parameter int ADDR_WIDTH = 32      // Can be upto 32 bits
+  )(
+    apb_inf inf
   );
 
   // Memory array and Protection Support
-  logic [31:0] mem [0:255];
-  logic        n_secure[0:255];     // 0 = Secure, 1 = Non Secure
+  logic [DATA_WIDTH-1:0]  mem [0:MEM_SIZE-1];         // Each element of 0 to MEM_SIZE-1 can store DATA_WIDTH size value
+  logic                   n_secure[0:MEM_SIZE-1];     // 0 = Secure, 1 = Non Secure
 
   // FSM States
   typedef enum logic [1:0]{
@@ -34,38 +38,44 @@ module apb_comp(
   ApbState current_state, next_state;
 
   //Internal Signals
-  logic         addr_aligned;
-  logic         access_allowed;
-  logic [31:0]  read_data;
-  logic [3:0]   write_strobe;
-  logic         in_secure_region;
-  logic         device_busy;                              // can add logic to set wait for read and write
+  logic    addr_aligned;
+  logic    access_allowed;
+  logic    not_secure_region;
+  logic    device_busy;                              // can add logic to set wait for read and write
 
   
   // Address allignment check
-  assign addr_aligned = (apb_inf.paddr[1:0] == 2'b00);    // Checks is address is 4 byte aligned, example 0x0000, 0x0004, 0x0008...
-
-  
+  assign addr_aligned = (inf.completer_cb.paddr[1:0] == 2'b00);     // Checks if address is 4 byte aligned, example 0x0000, 0x0004, 0x0008...
+                                                                    // address 0x0004 = mem[1], 0x0008 = mem[2]
+                                                                    // mem[0] -> Stores bytes 0,1,2,3
+                                                                    // mem[1] -> Stores bytes 4,5,6,7
+                                                                    // mem[2] -> Stores bytes 8,9,A,B
+                                                                    // mem[3] -> Stores bytes C,D,E,F
+                                                                    // Each address from the requester should point to a byte in memory
   
   // Secure Access Check
   always_comb begin
       
-    not_secure_region  = secure[apb.paddr[7:0]];
+    not_secure_region  = n_secure[inf.completer_cb.paddr[9:2]];     // Divides address by 4
     access_allowed     = 1'b1;
 
-    if(apb_inf.pprot[1] && !not_secure_region)             // Prevents non secure access from accessing secure memory
+    if(inf.completer_cb.paddr[31:10] != 0)                          // Address out of Range              
+      access_allowed = 1'b0;
+
+    else if(inf.completer_cb.pprot[1] && !not_secure_region)        // Prevents non secure access from accessing secure memory
       access_allowed  = 1'b0;
     
-    else if(!apb_inf.pprot[1] && not_secure_region)        // Prevents secure access from accessing non secure memory 
+    else if(!inf.completer_cb.pprot[1] && not_secure_region)        // Prevents secure access from accessing non secure memory 
       access_allowed  = 1'b0;
 
   end 
 
 
-   // APB Completer State Machine
-  always_ff @(posedge apb_inf.pclk or negedge apb_inf.preset_n) begin
+  //////// APB Completer State Machine //////// 
+
+  always_ff @(posedge inf.pclk or negedge inf.preset_n) begin
     
-    if(!apb_inf.preset_n)
+    if(!inf.preset_n)
       current_state   <=  IDLE;
     else 
       current_state   <=  next_state;
@@ -80,7 +90,7 @@ module apb_comp(
     case(current_state)
 
       IDLE:   begin
-                if(apb.psel && !apb.penable)
+                if(inf.completer_cb.psel && !inf.completer_cb.penable)
                   next_state        = SETUP;
               end
 
@@ -89,34 +99,32 @@ module apb_comp(
               end
 
       ACCESS: begin
-
-                if(apb_inf.pready) begin
-                  if(!apb_inf.psel)
+                if(inf.completer_cb.pready) begin
+                  if(!inf.completer_cb.psel)
                     next_state      = IDLE;
                   else
                     next_state      = SETUP;
                 end
-
                 else next_state     = ACCESS;
-
+              end
       endcase
 
   end
 
-  // Memory Access and Response
-  always_ff @(posedge apb.pclk or negedge apb.preset_n) begin
+  // Memory Access and Response 
+  always_ff @(posedge inf.pclk or negedge inf.preset_n) begin
     
-    if(!apb.preset_n) begin
-      apb_inf.prdata  <= 32'h0000_0000;
-      apb_inf.pready  <= 1'b1; 
-      apb_inf.pslverr <= 1'b0;
+    if(!inf.preset_n) begin
+      inf.completer_cb.prdata  <= {DATA_WIDTH{1'b0}};
+      inf.completer_cb.pready  <= 1'b0; 
+      inf.completer_cb.pslverr <= 1'b0;
       device_busy     <= 1'b0;
 
       // Initializing Memory and Protection Support
-      for(int i = 0; i < 256; i++) begin
+      for(int i = 0; i < MEM_SIZE; i++) begin
         
-        mem[i]    <= i;
-        secure[i] <= (i < 128);
+        mem[i]      <= i;
+        n_secure[i] <= (i < MEM_SIZE/2);                    // First half of Memory is Secure
 
       end
     
@@ -127,38 +135,39 @@ module apb_comp(
       case(current_state)
 
         IDLE:   begin
-                  apb_inf.pready    <= 1'b1;
-                  apb_inf.pslverr   <= 1'b0;
+                  inf.completer_cb.pready    <= 1'b0;
+                  inf.completer_cb.pslverr   <= 1'b0;
                 end
 
         SETUP:  begin
-                  apb_inf.pready <= 1'b0;    // Deassert for potential wait conditions, Also used for protocol timing when multiple transfers are present
+                  inf.completer_cb.pready <= 1'b0;    // Deassert for potential wait conditions, Also used for protocol timing when multiple transfers are present
                 end
 
         ACCESS: begin
-                  if(apb_inf.psel && apb_inf.penable) begin
-                    apb_inf.pslverr <= !(addr_aligned && access_allowed);
+                  if(inf.completer_cb.psel && inf.completer_cb.penable) begin
+                    inf.completer_cb.pslverr <= !(addr_aligned && access_allowed);
 
                     if(addr_aligned && access_allowed) begin
                       if(!device_busy) begin
-                        apb_inf.pready  <= 1'b1;
-                        if(apb_inf.pwrite) begin
+                        if(inf.completer_cb.pwrite) begin
                 
-                          for(int i = 0; i < 4; i++) begin
-                            if(apb_inf.pstrb[i])
-                              mem[apb.paddr[7:0]][i*8 +: 8] <= apb_inf.pwdata[i*8 +: 8];
+                          for(int i = 0; i < DATA_WIDTH/8; i++) begin
+                            if(inf.completer_cb.pstrb[i])
+                              mem[inf.completer_cb.paddr[ADDR_WIDTH-1:2]][i*8 +: 8] <= inf.completer_cb.pwdata[i*8 +: 8];
                           end
+                          inf.completer_cb.pready  <= 1'b1;
                         end
                         else begin
-                          apb_inf.prdata <= mem[apb_inf.paddr[7:0]];
+                          inf.completer_cb.prdata <= mem[inf.completer_cb.paddr[ADDR_WIDTH-1:2]];
+                          inf.completer_cb.pready  <= 1'b1;
                         end
                       end
 
-                      else apb_inf.pready <= 1'b0;
+                      else inf.completer_cb.pready <= 1'b0;
 
                     end
 
-                    else apb_inf.pready <= 1'b1;
+                    else inf.completer_cb.pready <= 1'b1;
                   end
 
                 end
