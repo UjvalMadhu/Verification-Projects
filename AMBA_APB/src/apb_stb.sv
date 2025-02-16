@@ -134,7 +134,7 @@ module test;
 			$display("Error: PSLVERR when writing to addr = %0h", 32'h84);
 
 		// Read Test
-		apbReadTransaction(32'h84, rdata, 3'b010);
+		apbReadTransaction(32'h84, rdata, 3'b000);
 		if(inf.requester_cb.pslverr)
 			$display("Error: PSLVERR when reading from addr = %0h", 32'h84);
 
