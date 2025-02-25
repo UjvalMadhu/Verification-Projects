@@ -1,0 +1,5 @@
+INCLUDE $SYNOPSYS_CUSTOM_INSTALL/samples/lib.defs
+DEFINE MCA_Project ./lib/MCA_Project_icc
+DEFINE saed32nm_hvt_1p9m /class/ee620/maieee/lib/synopsys/SAED_EDK32-28nm/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+DEFINE saed32nm_lvt_1p9m /class/ee620/maieee/lib/synopsys/SAED_EDK32-28nm/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+DEFINE saed32nm_rvt_1p9m /class/ee620/maieee/lib/synopsys/SAED_EDK32-28nm/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
