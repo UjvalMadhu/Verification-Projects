@@ -44,7 +44,12 @@ make sim=icarus      # This compiles all the RTL code and the Python testbench a
 gtkwave dump.vcd     # GTWave opens the GUI and reads the generated waveform dump file
 
 ```
+## Output Waveform
 
+The output waveform obtained from GTKWave is as follows:
+<p>
+    <img = src = "./Clock_gen_Waveforms.png">
+</p>
 
 ## License
 
@@ -57,4 +62,4 @@ This project is licensed under the GNU General Public License, Version 3 - see t
 
 ## Acknowledgments
 
-- This Project was done using instructions from Cadence Design Systems, Online Support Courses
+- This Project was done based on references provided from the online documentations of Cocotb and with the help of notes and tutorials from Kumar Khandagle [Kumar's website](https://namaste-fpga.com/#/)

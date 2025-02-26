@@ -41,6 +41,12 @@ make sim=icarus      # This compiles all the RTL code and the Python testbench a
 gtkwave dump.vcd     # GTWave opens the GUI and reads the generated waveform dump file
 
 ```
+## Output Waveform
+
+The output waveform obtained from GTKWave is as follows:
+<p>
+    <img = src = "./Adder_waveform.png">
+</p>
 
 
 ## License

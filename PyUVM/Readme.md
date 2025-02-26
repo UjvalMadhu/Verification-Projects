@@ -2,6 +2,15 @@
 
 The repo contains various digital verification projects implemented using Python based verification framework and open source tools.
 
+
+## Project Index
+
+| Sl No | Project | Description |
+|-------|---------|-------------|
+| 1.    | Adder Project | Basic Verification of a 4 bit adder using assertions |
+| 2.    | Clock_Gen Project | Creates Clocks using various Techniques |
+
+
 ## Libraries and Tools
 
 1. Cocotb
@@ -42,14 +51,6 @@ The repo contains various digital verification projects implemented using Python
     - Cross-Platform: GTKWave is designed to be cross-platform and runs on various operating systems, including Linux, macOS, and Windows. This portability is essential for users working on different development platforms.
     - Graphical User Interface (GUI): GTKWave has a graphical user interface, allowing users to interact with waveforms visually.
 
-## Project Index
-
-| Sl No | Project | Description |
-|-------|---------|-------------|
-| 1.    | Adder Project | Basic Verification of a 4 bit adder using assertions |
-| 2.    | Clock_Gen Project | Creates Clocks using various Techniques |
-
-
 ## License
 
 This project is licensed under the GNU General Public License, Version 3 - see the [LICENSE.md](LICENSE.md) file for details.
@@ -64,3 +65,4 @@ This project is licensed under the GNU General Public License, Version 3 - see t
 - UVM 1.2 User's Guide, Accellera Systems Initiative [Web link](https://www.accellera.org/downloads/standards/uvm)
 - Cocotb Documentation, [Official Webste](https://www.cocotb.org/)
 - PyUVM [Github Page](https://github.com/pyuvm/pyuvm)
+- Notes and tutorials from Kumar Khandagle [Kumar's website](https://namaste-fpga.com/#/)
