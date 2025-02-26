@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1740456205" />
-    <testcase name="add_stimuli" classname="adder_tb" file="/home/ujval/Verification/PyUVM/Adder_Project/adder_tb.py" lineno="8" time="0.0016989707946777344" sim_time_ns="450.001" ratio_time="264866.82490934606" />
+    <property name="random_seed" value="1740537360" />
+    <testcase name="add_stimuli" classname="adder_tb" file="/home/ujval/Verification/PyUVM/Adder_Project/adder_tb.py" lineno="8" time="0.0007295608520507812" sim_time_ns="10.001" ratio_time="13708.246504575163" />
   </testsuite>
 </testsuites>
