@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1740601227" />
-    <testcase name="test" classname="clocks_tb" file="/home/ujval/Verification/PyUVM/Clock_Gen/clocks_tb.py" lineno="55" time="0.002186298370361328" sim_time_ns="200.001" ratio_time="91479.27964056707" />
-  </testsuite>
-</testsuites>
