@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1740602072" />
-    <testcase name="add_stimuli" classname="adder_tb" file="/home/ujval/Verification/PyUVM/Adder_Project/adder_tb.py" lineno="9" time="0.0008666515350341797" sim_time_ns="30.001" ratio_time="34617.142862173314" />
-  </testsuite>
-</testsuites>
