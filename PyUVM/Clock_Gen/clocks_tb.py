@@ -1,3 +1,20 @@
+'''
+////////////////////////////////////////////////////////////////////////////////////
+///                       Cocotb Verification Project                           ////
+///                           Priority Encoder                                  ////
+////////////////////////////////////////////////////////////////////////////////////
+///   Testbench : Generates three distinct clock signals, each with             ////
+///                different characteristics                                    ////
+///   Copyright 2025 Ujval Madhu, All rights reserved                           ////
+////////////////////////////////////////////////////////////////////////////////////
+//  CVS Log
+//
+//  Id: clocks_tb.py,v 1.0
+//
+//  $Date: 2025-26-02
+//  $Revision: 1.0 $
+//  $Author:  Ujval Madhu
+'''
 import cocotb
 import logging
 
