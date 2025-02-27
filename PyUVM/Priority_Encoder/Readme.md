@@ -55,7 +55,7 @@ gtkwave dump.vcd     # GTWave opens the GUI and reads the generated waveform dum
 
 The output waveform obtained from GTKWave is as follows:
 <p>
-    <img = src = "./prc_enc_waveform.png">
+    <img = src = "./pr_enc_waveform.png">
 </p>
 
 ## License
