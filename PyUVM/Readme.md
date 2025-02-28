@@ -10,6 +10,7 @@ The repo contains various digital verification projects implemented using Python
 | 1.    | Adder Project | Basic Verification of a 4 bit adder using assertions |
 | 2.    | Clock_Gen Project | Creates Clocks using various Techniques |
 | 3.    | Priority Encoder  | Verifies a Priority encoder using Random Stimulus |
+| 4.    | 8x1 Mux | Verifies a Standard 8x1 Mux using random Stimulus |
 
 
 ## Libraries and Tools

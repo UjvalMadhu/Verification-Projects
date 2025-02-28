@@ -4,8 +4,8 @@
 ///                           Priority Encoder                                  ///
 ///////////////////////////////////////////////////////////////////////////////////
 ///   Testbench : Checks the DUT output with a Python Functional Model          ///
-///   Randomized Stimulus Generation is implemented                             ///
-///   We make implement the testbench using binary values                       ///
+///   Randomized Stimulus Generation is also implemented                        ///
+///   We implement the testbench using binary values                            ///
 ///   but, can directly use python integer values                               /// 
 ///   Acknowledgement: Kumar Khandagle, namaste-fpga.com                        ///
 ///   Copyright 2025 Ujval Madhu, All rights reserved                           ///
