@@ -1,3 +1,19 @@
+'''
+////////////////////////////////////////////////////////////////////////////////////
+///                       Cocotb Verification Project                           ////
+///                           4-Bit Adder                                       ////
+////////////////////////////////////////////////////////////////////////////////////
+///   Testbench : Manual Checks on the DUT                                      ////
+///   Copyright 2025 Ujval Madhu, All rights reserved                           ////
+////////////////////////////////////////////////////////////////////////////////////
+//  CVS Log
+//
+//  Id: adder_tb.py,v 1.0
+//
+//  $Date: 2025-25-02
+//  $Revision: 1.0 $
+//  $Author:  Ujval Madhu
+'''
 import cocotb
 import random
 from cocotb.triggers import Timer

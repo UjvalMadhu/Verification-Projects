@@ -3,5 +3,7 @@ __pycache__/
 sim_build/
 
 dump.vcd
+*.xml
 
 Intro/
+uvm_test/

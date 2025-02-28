@@ -1,7 +1,7 @@
 '''
 ////////////////////////////////////////////////////////////////////////////////////
 ///                       Cocotb Verification Project                           ////
-///                           Priority Encoder                                  ////
+///                           Clock Generator                                  ////
 ////////////////////////////////////////////////////////////////////////////////////
 ///   Testbench : Generates three distinct clock signals, each with             ////
 ///                different characteristics                                    ////
