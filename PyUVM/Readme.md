@@ -11,6 +11,7 @@ The repo contains various digital verification projects implemented using Python
 | 2.    | Clock_Gen Project | Creates Clocks using various Techniques |
 | 3.    | Priority Encoder  | Verifies a Priority encoder using Random Stimulus |
 | 4.    | 8x1 Mux | Verifies a Standard 8x1 Mux using random Stimulus |
+| 5.    | 4-Bit Ripple Carry Adder | Designs a 4-Bit Ripple Carry Adder and verifies it using using randomized cocotb testbench |
 
 
 ## Libraries and Tools
