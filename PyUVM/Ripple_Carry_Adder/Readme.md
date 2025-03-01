@@ -10,7 +10,7 @@ A 4-bit ripple carry adder is a digital circuit designed to add two 4-bit binary
 
 Ripple Carry Addeer Block diagram is shown here:
 <p>
-    <img = src = "./Figures/rcb4b_diagram.png">
+    <img = src = "./Figures/rcb4b_diagram.jpg">
 </p>
 
 Within each full adder, the logic is further decomposed. A full adder itself is commonly implemented using two half adder circuits and an OR gate.
