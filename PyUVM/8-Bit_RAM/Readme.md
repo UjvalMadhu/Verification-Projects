@@ -1,33 +1,87 @@
 # Priority Encoder Project
 
-The Project aims to design a simple Big endian Priority Encoder and verify it using a cocotb testbench with randomized stimulus
+The Project aims to design a simple 16x8 RAM (Random Access Memory) and verify it using a cocotb testbench by first devloping a verification plan and addressing it. The test bench has the following capabilities Self Checking, Constrained randomized stimulus, Logging and Reporting, Functional Equivalence.
 
 
 ## Description
 
 - DUT Priority Encoder: 
-This is a big-endian priority encoder that identifies the position of the most significant '1' bit in an 8-bit input. When enabled, it outputs a 3-bit value indicating the position (0-7) of the leftmost '1' bit. The highest bit (bit 7) has the highest priority, and the lowest bit (bit 0) has the lowest priority. If no bits are set or the enable signal is low, the output defaults to 0.
+The module implements a simple 16x8 RAM (Random Access Memory) with synchronous read and write operations. Key features include:
 
-- Testbench: 
-This testbench evaluates a priority encoder by running 30 randomized test cases that compare hardware outputs to a software reference model.
-For each test, it:
+- 16 memory locations (4-bit address space)
+- 8-bit data width for storage
+- Synchronous operation controlled by a clock signal
+- Active-low reset for clearing the memory
+- Write enable control signal to determine read vs write operations
 
-1. Generates a random 8-bit input and random enable signal
-2. Applies these to both the DUT and a reference model function
-3. Waits 10ns for the hardware to respond
-4. Compares the actual output with the expected output
-5. Logs any discrepancies with timestamps
-6. Reports a final pass/fail summary with error count
+The memory behaves as follows:
 
-The reference model implements the same big-endian priority encoding algorithm in software, but uses little-endian binary representation (note the bigEndian=False parameter),this is why the bit indices in the model appear reversed compared to the hardware implementation.
+- On reset: All memory locations are cleared to zero
+- On write: When write enable is high, data is stored at the specified address
+- On read: When write enable is low, data at the specified address is output
+
+## Testbench: 
+
+The testbench is designed on the basis of a verification pla that provides a comprehensive verification of the memory module, The verification plan takes into consideration the following cases:
+
+1. Basic Functionality Tests
+
+- Reset Verification: Verify that all memory locations are properly initialized to 0 after reset
+- Write Operation: Write data to various addresses and verify it's stored correctly
+- Read Operation: Read from previously written addresses and verify correct data is retrieved
+- Write-Read Sequence: Perform consecutive write followed by read to the same address
+- Read-after-Write: Test reading the same address immediately after writing to it
+
+2. Memory Behavior Testing
+
+- Memory Retention: Verify data remains unchanged when not being written to
+- Memory Independence: Verify writing to one address doesn't affect data in other addresses
+- Memory Scanning: Write unique patterns to all locations and read them back
+
+
+Based on these consideration the testbench is created with the following capabilities:
+
+- Automated Clock Generation
+
+Generates a 20ns period clock for synchronous operations
+
+
+- Randomized Reset Testing
+
+Initial system reset at the beginning of simulation
+Probabilistic reset insertion during testing (10% chance per iteration)
+Memory model synchronized with DUT during reset
+
+
+- Constrained Random Stimulus
+
+Randomized choice between read and write operations
+Variable number of reads/writes per test iteration
+Random addresses and data values for comprehensive coverage
+
+
+- Reference Model Comparison
+
+Maintains a Python dictionary as a reference model
+Automatically updates model during write operations
+Verifies DUT output against model during read operations
+Error counting and reporting for discrepancies
+
+
+- Detailed Logging and Reporting
+
+Simulation time stamping for all operations
+Hierarchical logging with operation categories
+Memory model state visibility during simulation
+Error detection and reporting
 
 
 
 ### Program Structure:
 
 
-- pr_enc.sv    (DUT definition)
-- pr_enc_tb.py (Python based testbench using cocotb)
+- ram8b.sv    (DUT definition)
+- ram8b_tb.py (Python based testbench using cocotb)
 - Makefile     (Build automation)
 
 
@@ -51,11 +105,17 @@ make sim=icarus      # This compiles all the RTL code and the Python testbench a
 gtkwave dump.vcd     # GTWave opens the GUI and reads the generated waveform dump file
 
 ```
-## Output Waveform
+## Output
 
-The output waveform obtained from GTKWave is as follows:
+The Testbench output was obtained as follows:
 <p>
-    <img = src = "./pr_enc_waveform.png">
+    <img = src = "./tb_waveform.png">
+</p>
+
+
+The output waveform of the testbench obtained from GTKWave is as follows:
+<p>
+    <img = src = "./tb_waveform.png">
 </p>
 
 ## License
