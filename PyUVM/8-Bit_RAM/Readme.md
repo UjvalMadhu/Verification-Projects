@@ -1,4 +1,4 @@
-# Priority Encoder Project
+# 16x8 Random Access Memory
 
 The Project aims to design a simple 16x8 RAM (Random Access Memory) and verify it using a cocotb testbench by first devloping a verification plan and addressing it. The test bench has the following capabilities Self Checking, Constrained randomized stimulus, Logging and Reporting, Functional Equivalence.
 
@@ -22,7 +22,9 @@ The memory behaves as follows:
 
 ## Testbench: 
 
-The testbench is designed on the basis of a verification pla that provides a comprehensive verification of the memory module, The verification plan takes into consideration the following cases:
+The testbench is designed on the basis of a verification pla that provides a comprehensive verification of the memory module, 
+
+#### The verification plan takes into consideration the following cases:
 
 1. Basic Functionality Tests
 
@@ -109,7 +111,7 @@ gtkwave dump.vcd     # GTWave opens the GUI and reads the generated waveform dum
 
 The Testbench output was obtained as follows:
 <p>
-    <img = src = "./tb_waveform.png">
+    <img = src = "./tb_out.png">
 </p>
 
 
