@@ -12,6 +12,7 @@ The repo contains various digital verification projects implemented using Python
 | 3.    | Priority Encoder  | Verifies a Priority encoder using Random Stimulus |
 | 4.    | 8x1 Mux | Verifies a Standard 8x1 Mux using random Stimulus |
 | 5.    | 4-Bit Ripple Carry Adder | Designs a 4-Bit Ripple Carry Adder and verifies it using using randomized cocotb testbench |
+| 6.    | 16x8 Random Access Memory | Designs a 16x8 bit RAM and verifies it using a Self Checking, Constrained Randomized Test Bench and Functional Model |
 
 
 ## Libraries and Tools
