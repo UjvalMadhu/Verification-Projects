@@ -57,8 +57,8 @@ Checks the error_count. If error_count is greater than 0, it logs an error messa
 ### Program Structure:
 
 
-- mux8x1.sv    (DUT definition)
-- mux8x1_tb.py (Python based testbench using cocotb)
+- rca4b.sv    (DUT definition)
+- rca4b_tb.py (Python based testbench using cocotb)
 - Makefile     (Build automation)
 
 

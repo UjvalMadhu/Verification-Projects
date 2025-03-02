@@ -5,7 +5,7 @@ The Project aims to design a simple 16x8 RAM (Random Access Memory) and verify i
 
 ## Description
 
-- DUT Priority Encoder: 
+- DUT 16x8 bit RAM: 
 The module implements a simple 16x8 RAM (Random Access Memory) with synchronous read and write operations. Key features include:
 
 - 16 memory locations (4-bit address space)
