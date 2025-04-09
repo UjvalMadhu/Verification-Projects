@@ -20,7 +20,7 @@ transaction tr;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         send = new("send", this);
-        if(!uvm_config_db#(virtual mul_inf)::get(this, "", "mif", mif))
+        if(!uvm_config_db#(virtual mul_if)::get(this, "", "mif", mif))
             `uvm_error("MON", "Unable to access interface");
     endfunction
 
