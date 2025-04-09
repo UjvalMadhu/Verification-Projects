@@ -3,7 +3,7 @@
 ///                              Sequence Class                                 ///
 ///                                                                             ///
 ///////////////////////////////////////////////////////////////////////////////////
-///   Sequence to be driven on the DUT                                          ///
+///   Sequence to be driven on the Multiplier DUT                               ///
 ///////////////////////////////////////////////////////////////////////////////////
 
 class seq extends uvm_sequence #(transaction);
