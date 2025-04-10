@@ -20,7 +20,7 @@ class agt extends uvm_agent;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         d = drv::type_id::create("d", this);
-        m = mob::type_id::create("m", this);
+        m = mon::type_id::create("m", this);
         seqr = uvm_sequencer #(transaction)::type_id::create("seqr", this);
     endfunction
 

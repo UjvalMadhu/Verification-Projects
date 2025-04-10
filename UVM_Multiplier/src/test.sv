@@ -24,7 +24,7 @@ class test extends uvm_test;
 
     virtual task run_phase(uvm_phase phase);
         phase.raise_objection(this);
-        sq.start(e.a.sqr);
+        sq.start(e.a.seqr);
         #20
         phase.drop_objection(this);
     endtask

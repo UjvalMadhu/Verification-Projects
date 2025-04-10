@@ -14,17 +14,19 @@ class scb extends uvm_scoreboard;
         super.new(name, parent);
     endfunction
 
-    virtual function build_phase(uvm_phase phase);
+    virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         recv = new("recv", this);
     endfunction
 
 
     virtual function void write(transaction tr);
-        if(tr.y == tr.a * tr.b)
+        if(tr.y == tr.a * tr.b) begin
             `uvm_info("SCB", $sformatf("Test Passed: a: %0d, b: %0d, y:%0d", tr.a, tr.b, tr.y), UVM_MEDIUM);
-        else
+        end
+        else begin
             `uvm_error("SCB", $sformatf("Test Passed: a: %0d, b: %0d, y:%0d", tr.a, tr.b, tr.y));
+        end
     endfunction
 
 endclass 
