@@ -6,7 +6,7 @@
 ///   This is a Synthesizable Parametrized FIFO  Design                         ///
 ///                                                                             ///
 ///    Parameters:                                                              ///
-///    DATA_WIDTH : Width of the data bus in bits                               ///     
+///    DATA_WIDTH : Width of the data bus in bits                               ///
 ///    DEPTH : Number of elements the FIFO can store                            ///
 ///                                                                             ///
 ///   Copyright (C) 2025 Ujval Madhu,                                           ///
@@ -23,7 +23,7 @@
 ///   You should have received a copy of the GNU General Public License         ///
 ///   along with this program.  If not, see <https://www.gnu.org/licenses/>.    ///
 ///                                                                             ///
-////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 //  CVS Log
 //
 //  Id: fifo.sv, v 1.0
